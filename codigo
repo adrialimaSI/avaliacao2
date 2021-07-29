@@ -1,0 +1,92 @@
+# Avaliação 2
+from typing import get_args
+
+
+class Produto:
+    def __init__(self, titulo, valor, desconto):
+        self.titulo = None
+        self.valor = None
+        self.desconto = None
+    
+    def get_titulo(self):
+        return self.titulo
+
+    def set_titulo(self, nv_titulo):
+        self.titulo = nv_titulo
+        
+    def get_valor(self):
+        return self.valor
+
+    def set_valor(self, nv_valor):
+        self.valor = nv_valor
+
+    def get_desconto(self):
+        return self.desconto
+
+    def set_desconto(self, nv_desconto):
+        self.desconto = nv_desconto
+
+class Livro (Produto):
+    def __init__(self, autor, titulo, valor, desconto):
+        self.autor = autor
+        self.desconto = 0
+        super().__init__(titulo, valor, desconto)
+
+    def get_autor(self):
+        return self.autor
+
+    def set_autor(self, nv_autor):
+        self.autor = nv_autor
+    
+    def get_desconto(self):
+        desconto = super().get_desconto()
+        desconto += self.get_desconto()
+        return desconto
+
+    def descreve_produto (self):
+        print(self.autor, self.titulo, self.valor, self.desconto)
+    
+class Cd (Produto):
+    def __init__(self, artista,titulo, valor, desconto):
+        self.artista = artista
+        super().__init__(titulo, valor, desconto)
+
+    def get_artista(self):
+        return self.artista
+
+    def set_artista(self, nv_artista):
+        self.artista = nv_artista
+
+    def get_desconto(self):
+        desconto = super().get_desconto()
+        desconto += self.get_desconto()
+        return desconto
+    
+    def descreve_produto (self):
+        print(self.artista, self.titulo, self.valor, self.desconto)
+
+class DVD (Produto):
+    def __init__(self, duracao, descreve_produto, titulo, valor, desconto):
+        self.duracao = duracao
+        super().__init__(titulo, valor, desconto)
+
+    def get_duracao(self):
+        return self.duracao
+
+    def set_duracao(self, nv_duracao):
+        self.duracao = nv_duracao
+
+    def get_desconto(self):
+        desconto = super().get_desconto()
+        desconto += self.get_desconto()
+        return desconto
+
+    def descreve_produto (self):
+        print(self.duracao, self.titulo, self.valor, self.desconto)
+    
+livro1 = Livro("Jhon Green", "A culpa é das Estrelas", 50 / 0.1)
+livro = Livro()
+livro.set_valor(100)
+livro.set_desconto(*0,1)
+print(livro.get_valor())
+livro.imprimeValor()
