@@ -85,7 +85,7 @@ class DVD (Produto):
         print(self.duracao, self.titulo, self.valor, self.desconto)
     
 livro1 = Livro("Jhon Green", "A culpa é das Estrelas", 50 / 0.1)
-livro = Livro()
+livro = livro1()
 livro.set_valor(100)
 livro.set_desconto(*0,1)
 print(livro.get_valor())
