@@ -36,15 +36,22 @@ class Produto:
 class Livro (Produto):
     def __init__(self, autor, titulo, valor, desconto, descreve_produto):
         self.autor = autor
-        self.desconto = None
+        self.desconto = desconto
         super().__init__(titulo, valor, desconto, descreve_produto)
 
     def get_autor(self):
-        return self.autor
+        autor = [
+                "Jhon Ghren", "Machado de Assis", "José Saramago", "William Shakespeare"]
+        return autor
 
     def set_autor(self, autor):
-        self.autor = autor
+        self.autor = autor 
     
+    def set_titulo(self, titulo):
+        titulo = [
+                    "A culpa é das Estrelas", "Ressurreicao", "Terra do Pecado", "Otero"]
+        return titulo
+
     def get_desconto(self):
         desconto = self.get_desconto(self.get_valor() * 10 / 100)
         return desconto
@@ -52,7 +59,7 @@ class Livro (Produto):
     def set_desconto(self, desconto):
         self.desconto = desconto
 
-    def descreve_produto (self):
+    def get_descreve_produto (self):
         print(self.autor, self.titulo, self.valor, self.desconto)
     
 class Cd (Produto):
@@ -98,11 +105,3 @@ class DVD (Produto):
 
     def descreve_produto (self):
         print(self.duracao, self.titulo, self.valor, self.desconto)
-     
-obj_livro = Livro("Jhon Ghren", "A culpa é das Estrelas", 50, 0.1, livro )
-obj_livro.set_autor ("Jhon Ghren")
-obj_livro.get_titulo ("A Culpa é das Estrelas")
-obj_livro.get_valor ("50")
-obj_livro.set_desconto (0.1)
-obj_livro.get_descreve_produto (obj_livro)
-print(obj_livro.get_descreve_produto)
