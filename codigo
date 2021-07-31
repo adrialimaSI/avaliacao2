@@ -37,48 +37,55 @@ class Livro (Produto):
     def __init__(self, autor, titulo, valor, desconto, descreve_produto):
         self.autor = autor
         self.desconto = desconto
-        super().__init__(titulo, valor, desconto, descreve_produto)
+        self.titulo = titulo
+        super().__init__(descreve_produto)
 
     def get_autor(self):
-        autor = [
-                "Jhon Ghren", "Machado de Assis", "José Saramago", "William Shakespeare"]
         return autor
 
     def set_autor(self, autor):
+        autor = ["Jhon Ghren", "Machado de Assis", "José Saramago", "William Shakespeare"]
         self.autor = autor 
     
     def set_titulo(self, titulo):
-        titulo = [
-                    "A culpa é das Estrelas", "Ressurreicao", "Terra do Pecado", "Otero"]
-        return titulo
+        titulo = ["A culpa é das Estrelas", "Ressurreicao", "Terra do Pecado", "Otero"]
+        return self.titulo
 
     def get_desconto(self):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
-        return desconto
+        return self.desconto
 
     def set_desconto(self, desconto):
+        desconto = self.get_desconto(self.get_valor() * 10 / 100)
         self.desconto = desconto
 
     def get_descreve_produto (self):
         print(self.autor, self.titulo, self.valor, self.desconto)
     
 class Cd (Produto):
-    def __init__(self, artista,titulo, valor, desconto,descreve_produto):
+    def __init__(self, artista, titulo, valor, desconto, descreve_produto):
         self.artista = artista
         self.desconto = 0.15
-        super().__init__(titulo, valor, desconto,descreve_produto)
+        super().__init__(descreve_produto)
 
     def get_artista(self):
         return self.artista
 
-    def set_artista(self, nv_artista):
-        self.artista = nv_artista
+    def set_artista(self, artista):
+        artista = ["Mamonas Assassinas", "Banda Calypso", "Jorge e Mateus", "Ze Vaqueiro"]
+        self.artista = artista
+
+    def get_titulo(self):
+        return self.titulo
+
+    def set_titulo(self, titulo):
+        titulo = ["Mamonas Assassinas", "Na Amazonia", "Tudo em Paz", "Vibe Original"]
+        self.titulo = titulo
 
     def get_desconto(self):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
-        return desconto
+        return self.desconto
 
     def set_desconto(self, desconto):
+        desconto = self.get_desconto(self.get_valor() * 10 / 100)
         self.desconto = desconto
     
     def descreve_produto (self):
@@ -86,22 +93,25 @@ class Cd (Produto):
 
 class DVD (Produto):
     def __init__(self, duracao, descreve_produto, titulo, valor, desconto):
-        self.duracao = duracao
-        self.desconto = 0.2
-        super().__init__(titulo, valor, desconto, descreve_produto)
+        self.duracao = None
+        self.desconto = None
+        super().__init__(descreve_produto)
 
     def get_duracao(self):
         return self.duracao
 
-    def set_duracao(self, nv_duracao):
-        self.duracao = nv_duracao
+    def set_duracao(self, duracao):
+        duracao = ["2:00 hs", "1:30 hs", "45 min"]
+        self.duracao = duracao
 
     def get_desconto(self):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
-        return desconto
+        return self.desconto
 
     def set_desconto(self, desconto):
+        desconto = self.get_desconto(self.get_valor() * 10 / 100)
         self.desconto = desconto
 
     def descreve_produto (self):
         print(self.duracao, self.titulo, self.valor, self.desconto)
+     
+     
