@@ -34,84 +34,102 @@ class Produto:
         self.descreve_produto = descreve_produto  
 
 class Livro (Produto):
-    def __init__(self, autor, titulo, valor, desconto, descreve_produto):
+    def __init__(self, autor, titulo, valor, descontol, descreve_produto):
         self.autor = autor
-        self.desconto = desconto
+        self.descontol = descontol
         self.titulo = titulo
-        super().__init__(descreve_produto)
-
+        
     def get_autor(self):
-        return autor
+        return self.autor
 
     def set_autor(self, autor):
-        autor = ["Jhon Ghren", "Machado de Assis", "José Saramago", "William Shakespeare"]
         self.autor = autor 
     
     def set_titulo(self, titulo):
-        titulo = ["A culpa é das Estrelas", "Ressurreicao", "Terra do Pecado", "Otero"]
         return self.titulo
 
-    def get_desconto(self):
-        return self.desconto
+    def get_descontol(self):
+        return self.descontol
 
-    def set_desconto(self, desconto):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
-        self.desconto = desconto
+    def set_descontol(self, descontol):
+        self.descontol = descontol
 
     def get_descreve_produto (self):
         print(self.autor, self.titulo, self.valor, self.desconto)
     
-class Cd (Produto):
+class DVD (Produto):
     def __init__(self, artista, titulo, valor, desconto, descreve_produto):
         self.artista = artista
         self.desconto = 0.15
-        super().__init__(descreve_produto)
 
     def get_artista(self):
         return self.artista
 
     def set_artista(self, artista):
-        artista = ["Mamonas Assassinas", "Banda Calypso", "Jorge e Mateus", "Ze Vaqueiro"]
         self.artista = artista
 
     def get_titulo(self):
         return self.titulo
 
     def set_titulo(self, titulo):
-        titulo = ["Mamonas Assassinas", "Na Amazonia", "Tudo em Paz", "Vibe Original"]
         self.titulo = titulo
 
     def get_desconto(self):
         return self.desconto
 
     def set_desconto(self, desconto):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
         self.desconto = desconto
     
     def descreve_produto (self):
         print(self.artista, self.titulo, self.valor, self.desconto)
 
 class DVD (Produto):
-    def __init__(self, duracao, descreve_produto, titulo, valor, desconto):
+    def __init__(self, titulo, valor, duracao, desconto, descreve_produto):
         self.duracao = None
         self.desconto = None
-        super().__init__(descreve_produto)
 
     def get_duracao(self):
         return self.duracao
 
     def set_duracao(self, duracao):
-        duracao = ["2:00 hs", "1:30 hs", "45 min"]
         self.duracao = duracao
 
     def get_desconto(self):
         return self.desconto
 
     def set_desconto(self, desconto):
-        desconto = self.get_desconto(self.get_valor() * 10 / 100)
         self.desconto = desconto
 
     def descreve_produto (self):
         print(self.duracao, self.titulo, self.valor, self.desconto)
      
-     
+#Execução
+list_livro = ["Autor: Jhon Ghren, Titulo: A culpa é das Estrelas, Valor 50 Reais, Desconto: 10 porcento",
+              "Autor: Machado de Assis, Titulo: Ressureicao, Valor 35 Reais, Desconto: 10 porcento"
+              "Autor: William Shakespeare, Titulo: Otero, Valor: 90 Reais, Desconto: 10 porcento"
+             ]
+descreve_produtoL = list_livro[0]
+get_valorL = 50
+get_descontol = get_valorL * 10 / 100
+valorfinall = get_valorL - get_descontol
+print (descreve_produtoL,"Valor à pagar", valorfinall)
+
+list_CD = ["Artista: Marilia Mendonca, Titulo: Realidade, Valor: 80 Reais, Desconto: 15 porcento",
+           "Artista: Ze Neto e Cristiano, Titulo: Esquece o Mundo la fora, Valor: 60 Reais, Desconto: 15 porcento",
+           "Artista: Raça Negra, Titulo: É tarde demais, Valor: 90 Reais, Desconto: 15 porcento"
+          ]
+descreve_produtoC = list_CD[0]
+get_valorC = 80
+get_descontoC = get_valorC * 15 / 100
+valorfinalC = get_valorC - get_descontoC
+print(descreve_produtoC, "Valor à pagar", valorfinalC)
+
+list_DVD = ["Galinha Pintadinha, Valor: 30 Reais, Duração: 29 minutos, Desconto: 15 porcento",
+            "Chapolin Colorado, Valor: 75 Reais, Duração: 90 minutos, Desconto: 15 porcento",
+            "Box Harry Potter, Valor: 140 reais, Duraçao: 1177 minutos, Desconto: 15 porcento"
+            ]
+descreve_produtoD = list_DVD[0]
+get_valorD = 30
+get_descontoD = get_valorD * 20 / 100
+valorfinalD = get_valorD - get_descontoD
+print(descreve_produtoD, "Valor à pagar", valorfinalD)
